@@ -1,2 +1,1 @@
-# -
-我学习的Xmind笔记
+# 笔记markdown和xmind  
