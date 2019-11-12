@@ -48,3 +48,29 @@ application|javax.servlet.ServletContext|所有用户共享信息
 page|java.long.Object|当前页面转换后的Servlet类的实例
 pageContext|javax.servlet.jsp.PageContext|JSP的页面容器
 exception|java.long.Throwable|表示JSP页面所发生的异常，在错误页中才起作用。
+
+### pageContext对象
+- #### 获取隐式对象的方法：
+方法名称|功能描述
+:-:|:-:
+JspWriter getOut()|获取out隐式对象
+Object getPage()|获取page隐式对象
+ServletRequest getRequest()|获取request隐式对象
+Servletresponse getResponse()|获取response隐式对象
+HttpSession getSession()|获取session隐式对象
+Exception getException()|获取exception隐式对象
+ServletConfig getServletConfig()|获取config隐式对象
+ServletContext getServletContext()|获取application隐式对象
+- ####  操作属性方法:
+方法名称|功能描述
+:-:|:-:
+void setAttribute(String name,Object value,int scope)|用于设置pageContext对象属性
+Object getAttribute(String name,ini scope)|用于获取pageContext对象的属性
+void removeAttribute(String name,int scope)|删除指定范围内名称为name的属性
+void removeAttribute(String name)|删除所有范围内名称为name的属性
+Object findAttribute(String name)|从4个域对象中查找名称为name的属性
+注：scope指定的是属性的作用范围，pageContext对象的作用范围有四个值
+- pageContext.PAGE_SCOPE:表示页面范围
+- pageContext.REQUEST_SCOPE:表示请求范围
+- pageContext.SESSION_SCOPE:表示会话范围
+- pageContext.APPLICATION_SCOPE:表示Web应用程序范围
