@@ -74,3 +74,7 @@ Object findAttribute(String name)|从4个域对象中查找名称为name的属�
 - pageContext.REQUEST_SCOPE:表示请求范围
 - pageContext.SESSION_SCOPE:表示会话范围
 - pageContext.APPLICATION_SCOPE:表示Web应用程序范围
+<jsp:include>动作元素
+<jsp:include page="relattiveURL" flush="true|false" />
+<jsp:forward>动作元素
+<jsp:forward page="relaticeURL" />
