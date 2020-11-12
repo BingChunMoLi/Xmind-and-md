@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-01 19:10:32
- * @LastEditTime: 2020-04-02 19:29:32
+ * @LastEditTime: 2020-09-23 06:13:43
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \undefinedd:\Github\Xmind-and-md\md\mysql\mysql.md
@@ -120,7 +120,8 @@ ALTER TABLE 表名 ADD CONSTRAINT 外键名称 FOREIGN KEY (外键字段名称) 
       - SELECT 字段列表 FROM 表1 LEFT 【OUTER】 JOIN 表2 ON 条件
    2. 右外连接
       - SELECT 字段列表 FROM 表1 RIGHT 【OUTER】 JOIN 表2 ON 条件
-
+   3. 全外连接(Mysql不支持)
+      - SELECT * FROM 表1 FULL OUTER JOIN 表2 ON 条件
 
 ## 用户管理
 - CREATE USER '用户名'@'主机名' INENTIFIED BY '密码';//添加
@@ -133,3 +134,73 @@ ALTER TABLE 表名 ADD CONSTRAINT 外键名称 FOREIGN KEY (外键字段名称) 
 - GRANT 权限列表 ON 数据库名.表名TO '用户名'@'主机名';//添加
 - GRANT ALL ON *.* TO '用户名'@'主机名';//授予全部权限
 - REVOKE 权限列表 ON 数据库名.表名 FROM '用户名'@'主机名';
+
+## other
+- UNION语句:用于将不同表中的相同列中查询的数据展示出来;(不包括重复数据)
+- UNION ALL语句:用于将不同表中相同列中查询的数据展示出来;(包括重复数据)
+
+## 建表关键字
+Mysql关键字|含义
+:-:|:-:
+NULL|数据可包含NULL值
+NOT NULL|数据不可包含NULL值
+DEFAULT|默认值
+PRIMARY KEY|主键
+AUTO_INCRMENT|自动递增用于整数类型
+UNSIGNED|无符号
+CHARACTER SET name|指定一个字符集
+
+
+## 严格数据类型与近似数据类型
+1. 严格数据类型
+> INEGER、SMALLINT、DECIMAL、NUMERIC
+2. 近似数据类型
+> FLOAT、REAL、DOUBLE PRECISION
+
+## 数据库元数据
+命令|描述
+:-:|:-:
+SELECT VERSION()|服务器版本信息
+SELECT DATABASE()|当前数据库名或返回空
+SELECT USER()|当前用户名
+SHOW STATUS|服务器状态
+SHOW VARIABLES|服务器环境变量
+
+## 索引
+1. 普通索引
+   1. 创建索引
+   > CREATE INDEX 索引名称 ON 表名(字段名(length))
+   1. 修改索引
+   > ALTER TABLE 表名 ADD INDEX 索引名(字段名)
+   1. 创建表时指定
+   ```sql
+   CREATE TABLE 表名(
+      ID NOT NULL,
+      username varchar(16) NOT NULL,
+      INDEX [索引名字] (字段名(length))
+   );
+   ```
+   1. 删除索引
+   > DROP INDEX [索引名称] ON 表名;
+2. 唯一索引
+   1. 创建索引
+   > CREATE UNIQUE INDEX 索引名称 ON 表名(字段名(length));
+   2. 修改索引
+   > ALTER table 表名 ADD UNIQUE [索引名] (字段名(length))
+   3. 创建表时指定
+   ```sql
+   CREATE TABLE 表名(
+      ID INT NOT NULL,
+      username varchar(16) NOT NULL,
+      UNIQUE [索引名称] (字段名(length))
+   )
+   ```
+3. other
+> AlTER TABLE 表名 ADD PRIMARY KEY (列名)
+该语句添加一个主键，这意味着索引值必须唯一的且不能为NULL
+>ALTER TABLE 表名 ADD UNIQUE 索引名(列名)
+这条语句创建的索引的值必须是唯一的(除了NULL外，NULL可能会出现多次)
+>ALTER TABLE 表名 ADD INDEX 索引名(列名)
+添加普通索引,索引值可出现多次
+>ALTER TABLE 表名 ADD FULLTEXT 索引名(列名)
+该语句指定了索引为FULLTEXT,用于全文索引.
