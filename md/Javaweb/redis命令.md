@@ -1,11 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2020-09-02 14:57:22
- * @LastEditTime: 2020-09-02 15:40:30
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: d:\Github\Xmind-and-md\md\Javaweb\redis.md
--->
 1. 命令操作
    1. 字符串类型(String)
       1. 存储:set key value

@@ -1,10 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2020-09-23 05:49:32
- * @LastEditTime: 2020-09-23 05:49:53
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \undefinedd:\Github\Xmind-and-md\md\mysql\函数.md
 -->
 <div id="article_content" class="article_content clearfix">
         <link rel="stylesheet" href="https://csdnimg.cn/release/blogv2/dist/mdeditor/css/editerView/ck_htmledit_views-a405391f94.css">
