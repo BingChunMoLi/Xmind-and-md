@@ -23,8 +23,26 @@ list.stream().collect(Collectors.toMap(Obj::getField, v -> Optional.ofNullable(o
 key重复时会抛出 
 > java.lang.IllegalStateException: Duplicate key
 
+覆盖
 ```java
 list.stream().collect(HashMap::new,(k, v) -> k.put(v.getField(), v.getField()), HashMap::putAll);
 
 list.stream().collect(Collectors.toMap(Obj::getField, Obj::getField, (k1, k2) -> k2));
+```
+拼接
+```java
+list.stream().collect(Collectors.toMap(Obj::getField, Obj::getField, (k1, k2) -> k1 + "," + k2));
+```
+集合
+```java
+list.stream().collect(Collectors.toMap(Obj::getField,
+    v -> {
+        List<String> t = new ArrayList<>();
+        t.add(v.getField());
+        return t;
+    },
+    (List<String> v1, List<String> v2) -> {
+        v1.addAll(v2);
+        return v1;
+    }));
 ```
