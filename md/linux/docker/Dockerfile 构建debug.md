@@ -1,0 +1,1 @@
+> docker run --entrypoint=sh -it <image_id>
