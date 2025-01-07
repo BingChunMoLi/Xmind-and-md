@@ -8,5 +8,5 @@
 ```
 
 ```text
-let
+Let's think step by step
 ```
